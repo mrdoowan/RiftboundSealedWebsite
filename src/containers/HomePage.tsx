@@ -1,5 +1,6 @@
-import React from 'react';
 import { Container, Typography, Box, Paper } from '@mui/material';
+import React from 'react';
+
 import Counter from '../components/Counter';
 
 const HomePage: React.FC = () => {

@@ -1,6 +1,7 @@
-import React from 'react';
-import type { Card as CardType } from '../types';
 import { Card, CardContent, Typography, Chip } from '@mui/material';
+import React from 'react';
+
+import type { Card as CardType } from '../types';
 
 interface CardItemProps {
   card: CardType;

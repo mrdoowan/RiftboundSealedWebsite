@@ -4,7 +4,7 @@ A website that simulates the deck registration and construction experience for p
 
 ## Technology Stack
 
-- **React 19** - UI framework
+- **React** - UI framework
 - **TypeScript** - Type safety
 - **Material-UI (MUI) v7** - Component library and design system
 - **Redux Toolkit** - State management
@@ -75,14 +75,6 @@ Build for production:
 npm run build
 ```
 
-### Lint
-
-Run ESLint:
-
-```bash
-npm run lint
-```
-
 ### Preview
 
 Preview the production build:
@@ -117,16 +109,28 @@ Centralized TypeScript type definitions ensuring type safety across the applicat
 4. **Material-UI**: Follow Material Design principles and use MUI components consistently
 5. **Code Style**: Follow the ESLint configuration and maintain consistent formatting
 
-## Features to Implement
+## Contributing
 
-- [ ] Sealed pool generation
-- [ ] Deck builder interface
-- [ ] Card filtering and search
-- [ ] Deck validation
-- [ ] Save/load deck functionality
-- [ ] User authentication
-- [ ] Game statistics
+### Jira
 
-## License
+The active JIRA board for planning is under [RIFTS](https://aegisesports.atlassian.net/jira/software/projects/RIFTS/boards/34/backlog). Ask Doowan for permission to access.
 
-This project is private and not licensed for public use.
+### Pushing Code
+
+`husky` Git hooks:
+
+- When _committing_ code, a pre-commit hook will run ESLint and Prettier to enforce coding practices. VSCode settings should automatically format the code upon saving. Sometimes that may not be the case and the changes can happen after committing.
+
+Though highly unadvised, the hooks can be temporarily disabled by:
+
+```
+$ HUSKY=0 git commit ... # To skip pre-commit hook
+```
+
+### Changelog Update
+
+TBD
+
+### Testing
+
+TBD

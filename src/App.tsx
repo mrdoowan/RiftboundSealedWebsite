@@ -1,7 +1,18 @@
+import {
+  CssBaseline,
+  ThemeProvider,
+  createTheme,
+  AppBar,
+  Toolbar,
+  Typography,
+  Box,
+  Tabs,
+  Tab,
+} from '@mui/material';
 import React from 'react';
-import { CssBaseline, ThemeProvider, createTheme, AppBar, Toolbar, Typography, Box, Tabs, Tab } from '@mui/material';
-import HomePage from './containers/HomePage';
+
 import CardList from './containers/CardList';
+import HomePage from './containers/HomePage';
 
 const theme = createTheme({
   palette: {
@@ -15,7 +26,7 @@ const theme = createTheme({
   },
 });
 
-function App() {
+const App = () => {
   const [tabValue, setTabValue] = React.useState(0);
 
   const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
@@ -31,7 +42,12 @@ function App() {
             Riftbound Sealed
           </Typography>
         </Toolbar>
-        <Tabs value={tabValue} onChange={handleTabChange} textColor="inherit" indicatorColor="secondary">
+        <Tabs
+          value={tabValue}
+          onChange={handleTabChange}
+          textColor="inherit"
+          indicatorColor="secondary"
+        >
           <Tab label="Home" />
           <Tab label="Cards" />
         </Tabs>
@@ -42,6 +58,6 @@ function App() {
       </Box>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

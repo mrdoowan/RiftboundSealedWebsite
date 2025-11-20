@@ -1,5 +1,6 @@
-import React from 'react';
 import { Container, Typography, Box } from '@mui/material';
+import React from 'react';
+
 import CardItem from '../components/CardItem';
 import { mockCards } from '../mockData/cards';
 
