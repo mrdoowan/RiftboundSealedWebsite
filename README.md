@@ -11,39 +11,6 @@ A website that simulates the deck registration and construction experience for p
 - **Vite** - Build tool and dev server
 - **ESLint** - Code linting
 
-## Project Structure
-
-```
-src/
-├── components/          # Reusable UI components
-│   ├── CardItem.tsx    # Individual card display component
-│   ├── Counter.tsx     # Redux counter example component
-│   └── index.ts        # Component exports
-│
-├── containers/          # Container components (smart components)
-│   ├── HomePage.tsx    # Home page container
-│   ├── CardList.tsx    # Card list container
-│   └── index.ts        # Container exports
-│
-├── mockData/           # Mock data for development
-│   ├── cards.ts        # Sample card data
-│   ├── users.ts        # Sample user data
-│   └── index.ts        # Mock data exports
-│
-├── types/              # TypeScript type definitions
-│   └── index.ts        # Application types (User, Card, Deck, etc.)
-│
-├── redux/              # Redux state management
-│   ├── slices/         # Redux slices
-│   │   └── exampleSlice.ts  # Example Redux slice
-│   └── store/          # Store configuration
-│       ├── store.ts    # Redux store setup
-│       └── hooks.ts    # Typed Redux hooks
-│
-├── App.tsx             # Main application component
-└── main.tsx            # Application entry point
-```
-
 ## Getting Started
 
 ### Prerequisites
@@ -127,9 +94,17 @@ Though highly unadvised, the hooks can be temporarily disabled by:
 $ HUSKY=0 git commit ... # To skip pre-commit hook
 ```
 
-### Changelog Update
+### Changelog Updates
 
-TBD
+Every PR must involve an update into the top template block of `CHANGELOG.md`. **ONLY** edit the template block; __*never*__ change older version sections further down the file.
+
+At least one bullet is required when updating the changelog. Add one or more bullets under the right heading:
+- **Breaking Change** – backwards-incompatible changes (e.g. remove/rename public API)
+- **Add** – new features, new endpoints, new options
+- **Remove** – removed non-breaking behavior, deprecations, cleanup
+- **Fix** – bug fixes, refactors that don’t change behavior
+
+Once that's done, the Github Action will automatically update the CHANGELOG and will bump the version based on the specified changes.
 
 ### Testing
 
