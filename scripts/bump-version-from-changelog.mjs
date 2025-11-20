@@ -17,17 +17,28 @@ if (!versionMatch || versionMatch.index === undefined) {
   process.exit(1);
 }
 
-const templateBlock = file.slice(0, versionMatch.index).trimEnd();
+const templateBlock = file.slice(0, versionMatch.index);
 const historyBlock = file.slice(versionMatch.index).trimStart();
 
 // Helper to get bullets from one of the template subsections
 function extractBullets(template, heading) {
-  const sectionRegex = new RegExp(`^## ${heading}[\\s\\S]*?(?=^## |$)`, 'm');
-  const match = template.match(sectionRegex);
-  if (!match) return [];
+  const header = `## ${heading}`;
+  const start = template.indexOf(header);
+  if (start === -1) return [];
 
-  const lines = match[0].split('\n').slice(1); // skip "## Heading"
-  return lines.filter((l) => l.trim().startsWith('- '));
+  // Find the end of the header line
+  const headerLineEnd = template.indexOf('\n', start);
+  if (headerLineEnd === -1) return [];
+
+  // Find the start of the next "## " section, or end of the template block
+  const nextHeaderPos = template.indexOf('\n## ', headerLineEnd);
+  const end = nextHeaderPos === -1 ? template.length : nextHeaderPos;
+  console.log(start, end);
+  console.log(JSON.stringify(templateBlock.slice(headerLineEnd)));
+
+  const body = template.slice(headerLineEnd + 1, end);
+
+  return body.split(/\r?\n/).filter((line) => line.trim().startsWith('- '));
 }
 
 const breakingBullets = extractBullets(templateBlock, 'Breaking Change');
